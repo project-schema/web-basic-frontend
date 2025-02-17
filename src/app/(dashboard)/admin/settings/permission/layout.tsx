@@ -13,8 +13,8 @@ const menu = [
 		href: '/admin/settings/permission?tab=role_sub_category',
 	},
 	{
-		label: 'Chapter',
-		href: '/admin/settings/permission?tab=chapter',
+		label: 'Keys',
+		href: '/admin/settings/permission?tab=keys',
 	},
 	{
 		label: 'Difficulty Level',

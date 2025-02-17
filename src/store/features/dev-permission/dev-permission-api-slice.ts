@@ -58,7 +58,10 @@ const api = apiSlice.injectEndpoints({
 				body: data,
 			}),
 
-			invalidatesTags: ['dev-permission-category'],
+			invalidatesTags: [
+				'dev-permission-category',
+				'dev-permission-sub-category',
+			],
 		}),
 
 		/*=================
@@ -70,7 +73,10 @@ const api = apiSlice.injectEndpoints({
 				method: 'DELETE',
 			}),
 
-			invalidatesTags: ['dev-permission-category'],
+			invalidatesTags: [
+				'dev-permission-category',
+				'dev-permission-sub-category',
+			],
 		}),
 
 		/*==============================================================

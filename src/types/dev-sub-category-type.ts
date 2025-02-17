@@ -1,3 +1,8 @@
+import {
+	IDevPermissionCategory,
+	IDevPermissionCategoryStatus,
+} from './dev-category-type';
+
 const data = {
 	status: true,
 	message: 'Operation successful',
@@ -20,7 +25,11 @@ const data = {
 export interface IDevPermissionSubCategory {
 	name: string;
 	permissionKey: string;
-	category: string;
+	category: {
+		_id: string;
+		name: string;
+		status: IDevPermissionCategoryStatus;
+	};
 	description: string;
 	status: IDevPermissionSubCategoryStatus;
 	position: number;

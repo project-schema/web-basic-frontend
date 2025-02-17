@@ -8,6 +8,7 @@ import {
 } from '@/store/features/admin';
 import {
 	DevPermissionCategoryList,
+	DevPermissionSubCategoryKeys,
 	DevPermissionSubCategoryList,
 } from '@/store/features/dev-permission';
 
@@ -19,8 +20,8 @@ const Page = ({ searchParams }: { searchParams: { tab: string } }) => {
 		case 'role_sub_category':
 			return <DevPermissionSubCategoryList />;
 
-		case 'chapter':
-			return <AdminChapterList />;
+		case 'keys':
+			return <DevPermissionSubCategoryKeys />;
 
 		case 'difficulty_level':
 			return <AdminDifficultyLevelList />;

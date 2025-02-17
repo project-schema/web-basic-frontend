@@ -19,6 +19,7 @@ export function DevPermissionCategoryList() {
 					<div key={item._id} className="border shadow-md p-3 rounded-md">
 						<p>{item.name}</p>
 						<p>{item.status}</p>
+						<p>{item.permissionKey}</p>
 						<p>{item.description}</p>
 						<div className="flex gap-2">
 							<DevPermissionCategoryDelete data={item} />

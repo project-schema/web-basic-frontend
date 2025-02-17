@@ -3,5 +3,5 @@
 // // "some_permission_key"
 
 export function stringFormat(str: string): string {
-	return str.trim().replace(/\s+/g, '_');
+	return str.trim().replace(/\s+/g, '_').toLocaleLowerCase();
 }

@@ -1,14 +1,14 @@
 'use client';
 
-import { IDevPermissionCategory } from '@/types';
 import { Button } from 'antd';
 import React from 'react';
 import { useDeleteDevSubCategoryMutation } from '../dev-permission-api-slice';
- 
+import { IDevPermissionSubCategory } from '@/types';
+
 export function DevSubPermissionCategoryDelete({
 	data,
 }: {
-	data: IDevPermissionCategory;
+	data: IDevPermissionSubCategory;
 }) {
 	const [deleting, { isLoading }] = useDeleteDevSubCategoryMutation();
 

@@ -37,7 +37,7 @@ export const DevPermissionCategoryStore = () => {
 			}).unwrap();
 			console.log(response);
 			if (response?.statusCode === 200) {
-				handleOk();
+				// handleOk();
 			}
 		} catch (error) {
 			console.log(error);

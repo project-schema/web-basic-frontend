@@ -2,18 +2,24 @@
 
 import React, { useState } from 'react';
 import { Button, Form, FormProps, Input, Modal, Select } from 'antd';
-import { IDevPermissionCategory } from '@/types';
+import { IDevPermissionSubCategory } from '@/types';
 import { stringFormat } from '@/helper';
-import { useEditDevSubCategoryMutation } from '../dev-permission-api-slice';
+import {
+	useEditDevSubCategoryMutation,
+	useGetDevCategoryQuery,
+} from '../dev-permission-api-slice';
 
 export const DevSubPermissionCategoryEdit = ({
 	data,
 }: {
-	data: IDevPermissionCategory;
+	data: IDevPermissionSubCategory;
 }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [form] = Form.useForm();
-
+	const { data: devCategory, isLoading: categoryLoading } =
+		useGetDevCategoryQuery({
+			query: 'active',
+		});
 	const showModal = () => {
 		setIsModalOpen(true);
 	};
@@ -30,6 +36,7 @@ export const DevSubPermissionCategoryEdit = ({
 	type FieldType = {
 		name: string;
 		description: string;
+		category: string;
 		status: string;
 	};
 
@@ -74,6 +81,7 @@ export const DevSubPermissionCategoryEdit = ({
 						status: data.status,
 						name: data.name,
 						description: data.description,
+						category: data?.category?._id,
 					}}
 					form={form}
 				>
@@ -87,6 +95,22 @@ export const DevSubPermissionCategoryEdit = ({
 
 					<Form.Item<FieldType> label="Description" name="description">
 						<Input.TextArea placeholder="Enter description" />
+					</Form.Item>
+
+					<Form.Item<FieldType>
+						label="Dev Category"
+						name="category"
+						rules={[{ required: true, message: 'This field is required' }]}
+					>
+						<Select
+							allowClear
+							showSearch
+							placeholder="select"
+							options={devCategory?.data.map((item) => ({
+								value: item._id,
+								label: item.name,
+							}))}
+						></Select>
 					</Form.Item>
 
 					<Form.Item<FieldType>

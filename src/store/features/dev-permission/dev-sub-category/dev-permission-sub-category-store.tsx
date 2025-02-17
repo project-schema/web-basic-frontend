@@ -45,7 +45,7 @@ export const DevSubPermissionCategoryStore = () => {
 			}).unwrap();
 			console.log(response);
 			if (response?.statusCode === 200) {
-				handleOk();
+				// handleOk();
 			}
 		} catch (error) {
 			console.log(error);
@@ -88,21 +88,6 @@ export const DevSubPermissionCategoryStore = () => {
 					</Form.Item>
 
 					<Form.Item<FieldType>
-						label="Status"
-						name="status"
-						rules={[{ required: true, message: 'This field is required' }]}
-					>
-						<Select
-							allowClear
-							showSearch
-							placeholder="select"
-							options={[
-								{ value: 'active', label: 'Active' },
-								{ value: 'inactive', label: 'Inactive' },
-							]}
-						></Select>
-					</Form.Item>
-					<Form.Item<FieldType>
 						label="Dev Category"
 						name="category"
 						rules={[{ required: true, message: 'This field is required' }]}
@@ -115,6 +100,22 @@ export const DevSubPermissionCategoryStore = () => {
 								value: item._id,
 								label: item.name,
 							}))}
+						></Select>
+					</Form.Item>
+
+					<Form.Item<FieldType>
+						label="Status"
+						name="status"
+						rules={[{ required: true, message: 'This field is required' }]}
+					>
+						<Select
+							allowClear
+							showSearch
+							placeholder="select"
+							options={[
+								{ value: 'active', label: 'Active' },
+								{ value: 'inactive', label: 'Inactive' },
+							]}
 						></Select>
 					</Form.Item>
 
